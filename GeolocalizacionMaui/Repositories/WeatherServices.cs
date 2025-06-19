@@ -12,7 +12,7 @@ namespace GeolocalizacionMaui.Repositories
     
     public class WeatherServices
     {
-        public async Task<WeatherData> GetWeatherDataAsync( double latitude, double longitude)
+        public async Task<WeatherData> GetWeatherDataAsync(double latitude, double longitude)
         {
             string latitude_str = latitude.ToString().Replace(",",".");
             string longitude_str = longitude.ToString().Replace(",", ".");

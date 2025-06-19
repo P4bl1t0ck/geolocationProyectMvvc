@@ -3,13 +3,13 @@
     x:Class="GeolocalizacionMaui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:GeolocalizacionMaui"
+    xmlns:local="clr-namespace:GeolocalizacionMaui.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="GeolocalizacionMaui">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Weather View"
+        ContentTemplate="{DataTemplate local:WeatherWiew}"
+        Route="WeatherView" />
 
 </Shell>

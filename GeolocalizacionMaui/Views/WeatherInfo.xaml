@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xlmns:namespace="clr-namespace:GeolocalizacionMaui.Views"
+             x:Class="GeolocalizacionMaui.Views.WeatherInfo"
+             Title="WeatherInfo">
+    <ContentPage.BindingContext>
+        <namespace:WeatherViewModel/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label
+    x:Name="Latitude"
+    Text="{Binding WeatherDataInfor.latitude}"
+            FontSize="Large"
+    />
+        <Label
+            x:Name="LabelTemperature"
+            Text="{Binding WeatherDataInfor.current.temperature_2m}"
+            />
+        
+        <Entry
+            x:Name="LabelTemperatureUNit"
+            Text="{Binding WeatherDataInfor.current_units.temperature_2m}"
+            />
+        <Entry
+            x:Name="LabelHumidity"
+            Text="{Binding WeatherDataInfor.current.relative_humidity_2m}"
+            />
+        <Button
+            x:Name=""
+            />
+
+        <Label
+            x:Name="LabelHumidity"
+            Text="{Binding WeatherDataInfor.current.relative_humidity_2m}"
+            />
+        <Label x:Name="LabelTemperatureFull">
+            <Label.Text>
+                <MultiBinding StringFormat="{}{0}{1}">
+                    <Binding Path="WeatherDataInfo.current.rain" />
+                    <Binding Path="WeatherDataInfo.current_units.rain" />
+                </MultiBinding>
+            </Label.Text>
+        </Label>
+
+    </VerticalStackLayout>
+</ContentPage>
