@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GeolocalizacionMaui.Models;
+using Newtonsoft.Json;
 
 namespace GeolocalizacionMaui.Repositories
 {
@@ -23,7 +24,16 @@ namespace GeolocalizacionMaui.Repositories
                 var response = await client.GetAsync(url);
                 response.EnsureSuccessStatusCode();//Dispara la excepcion numerica.
                 var result = await response.Content.ReadAsStringAsync();
+                GetWeatherDataAsync data = JsonConvert.DeserializeObject<WeatherData>GetWeatherDataAsync>(result);
+                return data;
             }
+        }
+
+        public async Task<WeatherData> GetCurrenteWeatherAsync(double latitude, double longitude)
+        {
+            GeolocationServices services = new GeolocationServices();
+            Location location = await Geolocation.GetLocationAsync();
+            return await GetWeatherDataLocationAsync(location.Latitude, location.Longitude);
         }
     }
 
